@@ -5,6 +5,7 @@ const ChatScreen = () => {
   return (
     <View>
       <Text className="text-red-500 text-lg">ChatScreen</Text>
+      <Button title="Go to Chat"></Button>
     </View>
   )
 }
