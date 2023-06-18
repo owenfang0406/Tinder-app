@@ -5,6 +5,7 @@ import HomeScreen from "./screens/HomeScreen"
 import ChatScreen from "./screens/ChatScreen"
 import LoginScreen from "./screens/LoginScreen"
 import useAuth from "./hooks/useAuth"
+import * as AuthSession from "expo-auth-session"
 
 const Stack = createNativeStackNavigator()
 const StackNavigator = () => {
