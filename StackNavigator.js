@@ -10,11 +10,16 @@ import * as AuthSession from "expo-auth-session"
 const Stack = createNativeStackNavigator()
 const StackNavigator = () => {
   const { user } = useAuth()
+  console.log("Stack", user)
   return (
     <Stack.Navigator>
       {user ? (
         <>
-          <Stack.Screen name="Home" component={HomeScreen}></Stack.Screen>
+          <Stack.Screen
+            name="Home"
+            options={{ headerShown: false }}
+            component={HomeScreen}
+          ></Stack.Screen>
           <Stack.Screen name="Chat" component={ChatScreen}></Stack.Screen>
         </>
       ) : (
