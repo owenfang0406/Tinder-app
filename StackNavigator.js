@@ -1,11 +1,12 @@
-import { View, Text } from "react-native"
-import React from "react"
+import { View, Text, StyleSheet } from "react-native"
+import React, { useState } from "react"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import HomeScreen from "./screens/HomeScreen"
 import ChatScreen from "./screens/ChatScreen"
 import LoginScreen from "./screens/LoginScreen"
 import useAuth from "./hooks/useAuth"
 import * as AuthSession from "expo-auth-session"
+import ProgressBar from "./Components/progressBar"
 
 const Stack = createNativeStackNavigator()
 const StackNavigator = () => {
@@ -28,5 +29,17 @@ const StackNavigator = () => {
     </Stack.Navigator>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    borderWidth: 1,
+    borderColor: "#000",
+    borderRadius: 5,
+    overflow: "hidden",
+  },
+  bar: {
+    height: "100%",
+  },
+})
 
 export default StackNavigator

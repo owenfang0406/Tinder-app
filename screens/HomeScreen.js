@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from "react-native"
-import React, { useEffect, useLayoutEffect } from "react"
+import React, { useEffect, useLayoutEffect, useRef } from "react"
 import { useNavigation } from "@react-navigation/native"
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import useAuth from "../hooks/useAuth"
@@ -61,6 +61,7 @@ const HomeScreen = () => {
   const navigation = useNavigation()
   const { logOut, user } = useAuth()
   useLayoutEffect(() => {}, [])
+  const swipeRef = useRef(null)
 
   return (
     <SafeAreaView className="flex-1">
@@ -87,6 +88,7 @@ const HomeScreen = () => {
       </View>
       <View className="flex-1 -mt-6">
         <Swiper
+          ref={swipeRef}
           containerStyle={{ backgroundColor: "transparent" }}
           cards={dummyData}
           onSwipedRight={() => {
@@ -142,6 +144,14 @@ const HomeScreen = () => {
             </View>
           )}
         ></Swiper>
+      </View>
+      <View className="flex flex-row justify-evenly">
+        <TouchableOpacity className="items-center justify-center rounded-full w-16 h-16 bg-red-200">
+          <Entypo name="cross" size={24} color="red"></Entypo>
+        </TouchableOpacity>
+        <TouchableOpacity className="items-center justify-center rounded-full w-16 h-16 bg-green-200">
+          <AntDesign name="heart" size={24} color="green"></AntDesign>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   )
